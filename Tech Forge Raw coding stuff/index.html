@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Forge Store | High-Quality Gadgets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Modern Navigation Header -->
+<header style="background: #0b0e14; border-bottom: 1px solid #242936; padding: 15px 30px; position: sticky; top: 0; z-index: 1000;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+        <!-- Brand Logo -->
+        <a href="#" style="color: #ffffff; text-decoration: none; font-size: 1.5rem; font-weight: 800; letter-spacing: 1px;">
+            TECH<span style="color: #00ffcc;">FORGE</span>
+        </a>
+        <!-- Category Links -->
+        <nav style="display: flex; gap: 25px;">
+            <a href="#" style="color: #8a99ad; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Products</a>
+            <a href="#shopping-cart" style="color: #8a99ad; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;">Checkout</a>
+        </nav>
+        <!-- Dynamic Cart Icon Link -->
+        <a href="#shopping-cart" style="background: #1a1e29; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; border: 1px solid #242936; display: flex; align-items: center; gap: 8px; transition: all 0.2s;">
+            🛒 Cart <span id="nav-cart-count" style="background: #00ffcc; color: #0b0e14; border-radius: 50%; padding: 2px 7px; font-size: 0.8rem;">0</span>
+        </a>
+    </div>
+</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Premium Tech. Honest Prices.</h1>
+        <p>Curated high-performance gadgets shipped straight to your door across South Africa.</p>
+        <a href="#shop" class="btn">Browse Deals</a>
+    </section>
+    <!-- Featured Products Grid -->
+    <main id="shop">
+        <h2>Featured Gadgets</h2>
+        <div class="product-grid"> 
+            <!-- Product Card 1 -->
+            <div class="product-card" data-id="1" data-name="Ultra-Bass Wireless Earbuds v2" data-price="499">
+                <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format&fit=crop&q=60" alt="Wireless Earbuds">
+                <h3>Ultra-Bass Wireless Earbuds v2</h3>
+                <p class="price">R 499.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="product-card" data-id="2" data-name="MagSafe 10,000mAh Power Bank" data-price="650">
+                <img src="https://images.unsplash.com/photo-1609592424085-f678516999be?w=500&auto=format&fit=crop&q=60" alt="Power Bank">
+                <h3>MagSafe 10,000mAh Power Bank</h3>
+                <p class="price">R 650.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card" data-id="3" data-name="RGB Mechanical Gaming Keyboard" data-price="899">
+                <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&auto=format&fit=crop&q=60" alt="Gaming Keyboard">
+                <h3>RGB Mechanical Gaming Keyboard</h3>
+                <p class="price">R 899.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    <!-- ... Your featured gadgets grid ends up here ... -->
+    <!-- Shopping Cart Checkout Section -->
+    <section id="cart-preview" style="padding: 40px 8%; background-color: #161920; border-top: 1px solid #242936; margin-top: 40px;">
+        <h2>Your Shopping Cart</h2>
+       <!-- Shopping Cart Section -->
+<section id="shopping-cart" style="background: #1a1e29; color: #ffffff; padding: 40px 20px; max-width: 800px; margin: 40px auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
+    <h2 style="border-bottom: 2px solid #242936; padding-bottom: 10px; margin-top: 0;">Your Shopping Cart</h2>    
+    <!-- This is where our dynamic JS items will inject -->
+    <div id="cart-items-list" style="margin: 20px 0;">
+        <p style="color: #8a99ad;">Your cart is empty.</p>
+    </div>
+    <!-- Cart Summary and Totals -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #242936; padding-top: 20px; margin-bottom: 20px;">
+        <span style="font-size: 1.2rem; font-weight: bold; color: #8a99ad;">Total Amount:</span>
+        <span id="cart-total-price" style="font-size: 1.5rem; font-weight: bold; color: #00ffcc;">R 0.00</span>
+    </div>
+    <!-- Live/Sandbox PayFast Form Container -->
+    <div style="text-align: right;">
+        <form id="payfast-form" action="https://sandbox.payfast.co.za/eng/process" method="post">
+            <input type="hidden" name="merchant_id" value="10000100">
+            <input type="hidden" name="merchant_key" value="46f0cd694581a">
+            <input type="hidden" name="return_url" value="http://127.0.0.1:5500/index.html">
+            <input type="hidden" name="cancel_url" value="http://127.0.0.1:5500/index.html">
+            <input type="hidden" name="m_payment_id" id="pf-payment-id" value="">
+            <input type="hidden" name="amount" id="pf-amount" value="0.00">
+            <input type="hidden" name="item_name" id="pf-item-name" value="Tech Forge Order">
+            <input type="hidden" name="item_description" value="Tech Forge Online Purchase">
+            <input type="hidden" name="name_first" value="John">
+            <input type="hidden" name="email_address" value="testerjohn99@gmail.com">
+            
+            <button type="submit" id="checkout-btn" class="btn" style="background: #00ffcc; color: #0b0e14; border: none; padding: 14px 28px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; transition: all 0.2s;" disabled>
+                Secure Checkout via PayFast
+            </button>
+        </form>
+    </div>
+</section>      
+        <div style="font-size: 1.4rem; font-weight: 700; margin-bottom: 20px;">
+            Total: <span id="cart-total-price" style="color: #00bcd4;">R 0.00</span>
+        </div>
+<!-- Production-Ready Live PayFast Form -->
+        <form id="payfast-form" action="https://www.payfast.co.za/eng/process" method="post">
+            <!-- Your Real Live Credentials -->
+            <input type="hidden" name="merchant_id" value="32855777">
+            <input type="hidden" name="merchant_key" value="nheyrykokvobb">
+            
+            <!-- Return URLs updated to your live secure domain -->
+            <input type="hidden" name="return_url" value="https://shoptechforge.com/index.html">
+            <input type="hidden" name="cancel_url" value="https://shoptechforge.com/index.html">
+            
+            <!-- Dynamic Transaction Details (Updated by JS) -->
+            <input type="hidden" name="m_payment_id" id="pf-payment-id" value="">
+            <input type="hidden" name="amount" id="pf-amount" value="0.00">
+            <input type="hidden" name="item_name" id="pf-item-name" value="Tech Forge Order">
+            
+            <!-- Compliance fields -->
+            <input type="hidden" name="item_description" value="Tech Forge Online Purchase">
+            <input type="hidden" name="name_first" value="Customer">
+            <input type="hidden" name="email_address" value="customer@shoptechforge.com">
+            
+            <!-- Submit Button -->
+            <button type="submit" id="checkout-btn" class="btn" style="border: none; width: 100%; max-width: 300px; cursor: pointer;" disabled>
+                Secure Checkout via PayFast
+            </button>
+        </form>
+    </section>
+    <!-- Footer (This should already be in your file) -->
+    <footer>
+        <p>&copy; 2026 Tech Forge. Built with custom code. Flat-rate nationwide courier shipping.</p>
+    </footer>
+    <!-- This script link must live right here before the closing body tag -->
+    <script src="script.js"></script>
+</body>
+</html>
